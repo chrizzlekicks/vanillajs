@@ -6,9 +6,7 @@ const btns = document.querySelectorAll(".btn");
 let counter = 0;
 
 // loop through btns and add event listener
-for(let i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", changeCounter)
-}
+btns.forEach(btn => btn.addEventListener("click", changeCounter))    
 
 // function
 function changeCounter(e) {

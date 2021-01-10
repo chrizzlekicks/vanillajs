@@ -159,6 +159,7 @@ main {
 
 .flip-btn {
     box-shadow: var(--bx-shdw);
+    text-transform: uppercase;
 }
 
 @media screen and (min-width: 876px) {
