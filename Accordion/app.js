@@ -37,12 +37,12 @@ function displayQuestions(questions) {
     faqs.forEach(faq => {
         const toggle = faq.querySelector(".title");
         toggle.addEventListener("click", () => {
-            // close all remaining questions
+            // close all other open questions
             faqs.forEach(question => {
-                    if (question != faq) {
-                        question.classList.remove("is-open");
-                    }
-                });
+                if (question != faq) {
+                    question.classList.remove("is-open");
+                }
+            });
             faq.classList.toggle("is-open");
         })
     })
