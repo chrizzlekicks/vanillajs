@@ -1,7 +1,6 @@
 // select variables
 const navbar = document.querySelector(".nav-container");
-const menu = document.querySelector(".nav-menu");
-const btns = document.querySelector(".btn-container");
+const menu = document.querySelector(".nav-center");
 const generate = document.querySelector(".text-generator");
 const main = document.querySelector(".main");
 const navToggle = document.querySelector(".icon");
@@ -18,7 +17,6 @@ window.addEventListener("scroll", () => {
 // activate toggle
 navToggle.addEventListener("click", () => {
     menu.classList.toggle("show-menu");
-    btns.classList.toggle("show-menu")
 });
 
 // click btn and generate text
