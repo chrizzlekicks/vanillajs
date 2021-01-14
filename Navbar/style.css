@@ -136,11 +136,10 @@ button:hover {
 
 /* Navbar */
 .nav-container {
-    background-color: var(--fnt-clr);
+    background-color: transparent;
     padding: 0 1rem;
     position: absolute;
     width: 100%;
-    box-shadow: var(--mn-shdw);
     transition: var(--trnstn);
 }
 
@@ -149,12 +148,18 @@ button:hover {
     justify-content: space-between;
 }
 
+.logo {
+    fill: var(--fnt-clr);
+}
+
 .nav-center {
     display: flex;
     flex-direction: column;
     height: 0;
     overflow: hidden;
     transition: var(--trnstn);
+    flex-basis: 100%;
+    flex-grow: 1;
 }
 
 .nav-menu {
@@ -162,13 +167,13 @@ button:hover {
     font-size: 1rem;
 }
 
-.nav-menu a {
-    color: var(--bckgrnd-clr);
+.links {
+    color: var(--fnt-clr);
     transition: var(--trnstn);
     margin: 0.5rem;
 }
 
-.nav-menu a:hover {
+.links:hover {
     color: rgb(153, 153, 153);
     padding-left: 0.5rem;
 }
@@ -209,24 +214,22 @@ button:hover {
     align-self: center;
 }
 
-.icon i {
-    color: var(--bckgrnd-clr);
+.material-icons {
+    color: var(--fnt-clr);
     transition: var(--trnstn);
 }
 
-.icon i:hover {
+.material-icons:hover {
     cursor: pointer;
     transform: rotate(-90deg);
 }
 
-.show-menu {
+.show-menu .nav-center {
     height: 13rem;
 }
 
-.sticky {
-    top: 0;
-    position: fixed;
-    width: 100%;
+.change-color {
+    background-color: var(--fnt-clr);
 }
 
 main {
@@ -252,7 +255,7 @@ main {
         justify-content: space-between;
         align-items: center;
         height: auto;
-        flex: 1 1;
+        flex-basis: auto;
     }
     
     .nav-menu {
@@ -260,11 +263,11 @@ main {
         padding-left: 3rem;
     }
 
-    .nav-menu a {
-        color: var(--bckgrnd-clr);
+    .links {
+        color: var(--fnt-clr);
     }
 
-    .nav-menu a:hover {
+    .links:hover:hover {
         padding-left: 0;
     }
 
@@ -276,4 +279,17 @@ main {
     .icon {
         display: none;
     }
+}
+
+/* add sticky */
+.sticky-nav {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    background-color: var(--fnt-clr);
+    box-shadow: var(--mn-shdw);
+}
+
+.sticky-links {
+    color: var(--bckgrnd-clr);
 }

@@ -1,26 +1,54 @@
 // select variables
 const navbar = document.querySelector(".nav-container");
 const menu = document.querySelector(".nav-center");
-const generate = document.querySelector(".text-generator");
+const generateText = document.querySelector(".text-generator");
 const main = document.querySelector(".main");
 const navToggle = document.querySelector(".icon");
+let links = document.querySelectorAll(".links");
+let icon = navToggle.querySelector(".material-icons");
 
 // scroll
 window.addEventListener("scroll", () => {
-    if(window.scrollY > 200) {
-        navbar.classList.add("sticky")
+    if(window.scrollY > navbar.offsetTop) {
+        navbar.classList.add("sticky-nav");
+        links.forEach(link => link.classList.add("sticky-links"));
+        icon.style.color = "#333333";
     } else {
-        navbar.classList.remove("sticky");
+        navbar.classList.remove("sticky-nav");
+        links.forEach(link => link.classList.remove("sticky-links"));
+        icon.style.color = "#f5f5f5";
     }
 });
 
 // activate toggle
 navToggle.addEventListener("click", () => {
-    menu.classList.toggle("show-menu");
+    navbar.classList.toggle("show-menu");
+    if(navbar.classList.contains("show-menu")) {
+        navbar.classList.add("change-color");
+        links.forEach(link => link.classList.add("sticky-links"));
+        icon.style.color = "#333333";
+        disableScroll();
+    } else {
+        navbar.classList.remove("change-color");
+        links.forEach(link => link.classList.remove("sticky-links"));
+        if(!navbar.classList.contains("sticky-nav")) {
+            icon.style.color = "#f5f5f5";
+        }
+        enableScroll();
+    }
 });
 
+function disableScroll() {
+    document.body.style.overflow = "hidden";
+    document.querySelector("html").scrollTop = window.scrollY;
+}
+
+function enableScroll() {
+    document.body.style.overflow = null;
+}
+
 // click btn and generate text
-generate.addEventListener("click", () => {
+generateText.addEventListener("click", () => {
     main.innerHTML = `<h2>Welcome to this cool site here!</h2>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores doloremque exercitationem sequi 
     doloribus dolorem nobis, placeat recusandae nihil quod dolorum dignissimos harum reprehenderit quas 
