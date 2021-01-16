@@ -228,10 +228,6 @@ button:hover {
     height: 13rem;
 }
 
-.change-color {
-    background-color: var(--fnt-clr);
-}
-
 main {
     min-height: 100vh;
     padding: 2rem;
@@ -276,6 +272,10 @@ main {
         align-items: center;
     }
 
+    .show-menu .nav-center {
+        height: auto;    
+    }
+
     .icon {
         display: none;
     }
@@ -286,7 +286,6 @@ main {
     top: 0;
     position: fixed;
     width: 100%;
-    background-color: var(--fnt-clr);
     box-shadow: var(--mn-shdw);
 }
 

@@ -11,10 +11,13 @@ let icon = navToggle.querySelector(".material-icons");
 window.addEventListener("scroll", () => {
     if(window.scrollY > navbar.offsetTop) {
         navbar.classList.add("sticky-nav");
+        navbar.style.backgroundColor = "#f5f5f5";
         links.forEach(link => link.classList.add("sticky-links"));
         icon.style.color = "#333333";
     } else {
         navbar.classList.remove("sticky-nav");
+        navbar.classList.remove("show-menu");
+        navbar.style.backgroundColor = "#333333";
         links.forEach(link => link.classList.remove("sticky-links"));
         icon.style.color = "#f5f5f5";
     }
@@ -22,30 +25,22 @@ window.addEventListener("scroll", () => {
 
 // activate toggle
 navToggle.addEventListener("click", () => {
-    navbar.classList.toggle("show-menu");
     if(navbar.classList.contains("show-menu")) {
-        navbar.classList.add("change-color");
+        navbar.classList.remove("show-menu");
+        navbar.style.backgroundColor = "#333333";
+        links.forEach(link => link.classList.remove("sticky-links"));
+        icon.style.color = "#f5f5f5";
+        if(navbar.classList.contains("sticky-nav")) {
+            navbar.style.backgroundColor = "#f5f5f5";
+            icon.style.color = "#333333";
+        }
+    } else {
+        navbar.classList.add("show-menu");
+        navbar.style.backgroundColor = "#f5f5f5";
         links.forEach(link => link.classList.add("sticky-links"));
         icon.style.color = "#333333";
-        disableScroll();
-    } else {
-        navbar.classList.remove("change-color");
-        links.forEach(link => link.classList.remove("sticky-links"));
-        if(!navbar.classList.contains("sticky-nav")) {
-            icon.style.color = "#f5f5f5";
-        }
-        enableScroll();
     }
 });
-
-function disableScroll() {
-    document.body.style.overflow = "hidden";
-    document.querySelector("html").scrollTop = window.scrollY;
-}
-
-function enableScroll() {
-    document.body.style.overflow = null;
-}
 
 // click btn and generate text
 generateText.addEventListener("click", () => {
