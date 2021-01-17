@@ -167,6 +167,7 @@ main {
 .prev-btn,
 .next-btn {
     margin: 0.25rem;
+    text-transform: uppercase;
 }
 
 @media screen and (min-width: 876px) {
