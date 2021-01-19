@@ -17,14 +17,14 @@ function displayFilterBtns() {
             tags.push(book.genre)
         } 
         return tags
-    }, ["all"]);
+    }, ["alle"]);
     btnSpace.innerHTML = genres.map(genre => `<button class="filter-btn" type="button" data-genre="${genre}">${genre}</button>`).join("");
     const filterBtns = btnSpace.querySelectorAll(".filter-btn");
     filterBtns.forEach(filterBtn => {
         filterBtn.addEventListener("click", (e) => {
             const genre = e.target.dataset.genre;
             const filteredBooks = books.filter(book => book.genre === genre);
-            if(genre === "all") {
+            if(genre === "alle") {
                 displayBookShelf(books);
             } else {
                 displayBookShelf(filteredBooks);
