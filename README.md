@@ -13,4 +13,6 @@ These are simple Vanilla JS projects for the sole purpose of practising.
 2. **[Navbar](https://chrizzlekicks.github.io/vanillajs/navbar/navbar.html)**
 3. **[Modal](https://chrizzlekicks.github.io/vanillajs/modal/modal.html)**
 4. **[Slider](https://chrizzlekicks.github.io/vanillajs/slider/slider.html)**
-5. **[Filter Buttons](https://chrizzlekicks.github.io/vanillajs/book-shelf/shelf.html)**
+
+### Little Apps
+1. **[Book Shelf w/ Filter Btns](https://chrizzlekicks.github.io/vanillajs/book-shelf/shelf.html)**
