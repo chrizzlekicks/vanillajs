@@ -3,13 +3,31 @@ import books from "./books.js";
 
 // load varibales
 const shelf = document.querySelector(".shelf-container");
-const btnSpace = document.querySelector(".btn-container")
+const btnSpace = document.querySelector(".btn-container");
+const searchBar = document.querySelector(".search-bar");
 
 // setup UI
 window.addEventListener("DOMContentLoaded", () => {
     displayBookShelf(books);
     displayFilterBtns();
+    displaySearchBar();
 });
+
+function displaySearchBar() {
+    searchBar.innerHTML = `<input type="text" class="form" id="userinput" placeholder="Bitte Buchtitel exakt eingeben"><button class="search-btn">suche</button>`;
+    const searchBtn = searchBar.querySelector(".search-btn");
+    let input = searchBar.querySelector("#userinput");
+    searchBtn.addEventListener("click", () => {
+        if(inputLength(input) > 0) {
+            searchBook(input);
+        }
+    });
+    input.addEventListener("keypress", (e) => {
+        if(inputLength(input) > 0 && e.which == 13) {
+            searchBook(input);
+        }
+    });
+}
 
 function displayFilterBtns() {
     const genres = books.reduce((tags, book) => {
@@ -44,4 +62,15 @@ function displayBookShelf(items) {
             </div>
         </li>`
     ).join("");
+}
+
+function searchBook(item) {
+    let search = item.value;
+    const findBook = books.find(book => book.title == search);
+    const foundBook = new Array(findBook);
+    displayBookShelf(foundBook);
+}
+
+function inputLength(item) {
+    return item.value.length;
 }

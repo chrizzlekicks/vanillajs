@@ -15,4 +15,4 @@ These are simple Vanilla JS projects for the sole purpose of practising.
 4. **[Slider](https://chrizzlekicks.github.io/vanillajs/slider/)**
 
 ### Little Apps
-1. **[Book Shelf w/ Filter Btns](https://chrizzlekicks.github.io/vanillajs/book-shelf/)**
+1. **[Book Shelf w/ Filter Btns & Search Bar](https://chrizzlekicks.github.io/vanillajs/book-shelf/)**
