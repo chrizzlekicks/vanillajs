@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function displaySearchBar() {
-    searchBar.innerHTML = `<input type="text" class="form" id="userinput" placeholder="Bitte Buchtitel exakt eingeben"><button class="search-btn">suche</button>`;
+    searchBar.innerHTML = `<input type="text" class="form" id="userinput" placeholder="Nach Buchtitel suchen"><button class="search-btn">suche</button>`;
     const searchBtn = searchBar.querySelector(".search-btn");
     let input = searchBar.querySelector("#userinput");
     searchBtn.addEventListener("click", () => {
