@@ -65,8 +65,8 @@ function displayBookShelf(items) {
 }
 
 function searchBook(item) {
-    let search = item.value.toLowerCase();
-    const findBook = books.find(book => book.title == search);
+    let search = item.value;
+    const findBook = books.find(book => book.title.toLowerCase().includes(search.toLowerCase()));
     const foundBook = new Array(findBook);
     displayBookShelf(foundBook);
 }
