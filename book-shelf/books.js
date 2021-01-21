@@ -49,4 +49,19 @@ const books = [
     }
 ];
 
-export default books
+const shelf = document.querySelector(".shelf-container");
+
+const displayBookShelf = (items) => {
+    shelf.innerHTML = items.map(item => 
+        `<li class="book">
+            <img src="${item.img}" alt="${item.title}" />
+            <div class="book-info">
+                <h4>${item.title}</h4>
+                <p class="book-author">${item.author}</p>
+                <p class="book-genre">${item.genre}</p>
+            </div>
+        </li>`
+    ).join("");
+}
+
+export { books, displayBookShelf } 

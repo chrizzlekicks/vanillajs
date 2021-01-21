@@ -1,35 +1,34 @@
-// imports
-import books from "./books.js";
-
-// load varibales
-const shelf = document.querySelector(".shelf-container");
+import { books, displayBookShelf } from "./books.js";
 const btnSpace = document.querySelector(".btn-container");
 const searchBar = document.querySelector(".search-bar");
 
-// setup UI
-window.addEventListener("DOMContentLoaded", () => {
-    displayBookShelf(books);
-    displayFilterBtns();
-    displaySearchBar();
-});
+const inputLength = (item) => {
+    return item.value.length;
+}
 
-function displaySearchBar() {
-    searchBar.innerHTML = `<input type="text" class="form" id="userinput" placeholder="Nach Buchtitel suchen"><button class="search-btn">suche</button>`;
-    const searchBtn = searchBar.querySelector(".search-btn");
-    let input = searchBar.querySelector("#userinput");
-    searchBtn.addEventListener("click", () => {
-        if(inputLength(input) > 0) {
-            searchBook(input);
+const searchBook = (item) => {
+    let search = item.value.toLowerCase();
+    const findBook = books.filter(book => {
+        if(book.title.includes(search) || book.author.includes(search)) {
+            return book
         }
     });
-    input.addEventListener("keypress", (e) => {
-        if(inputLength(input) > 0 && e.which == 13) {
+    displayBookShelf(findBook);
+}
+
+const displaySearchBar = () => {
+    searchBar.innerHTML = `<input type="text" class="form" id="userinput" placeholder="Nach Titel oder Autor suchen">`;
+    let input = searchBar.querySelector("#userinput");
+    input.addEventListener("input", () => {
+        if(inputLength(input) > 0) {
             searchBook(input);
+        } else {
+            displayBookShelf(books);
         }
     })
 }
 
-function displayFilterBtns() {
+const displayFilterBtns = () => {
     const genres = books.reduce((tags, book) => {
         if(!tags.includes(book.genre)) {
             tags.push(book.genre)
@@ -51,26 +50,10 @@ function displayFilterBtns() {
     })
 }
 
-function displayBookShelf(items) {
-    shelf.innerHTML = items.map(item => 
-        `<li class="book">
-            <img src="${item.img}" alt="${item.title}" />
-            <div class="book-info">
-                <h4>${item.title}</h4>
-                <p class="book-author">${item.author}</p>
-                <p class="book-genre">${item.genre}</p>
-            </div>
-        </li>`
-    ).join("");
+const setupUI = () => {
+    displayBookShelf(books);
+    displaySearchBar();
+    displayFilterBtns();
 }
 
-function searchBook(item) {
-    let search = item.value.toLowerCase();
-    const findBook = books.find(book => book.title.includes(search));
-    const foundBook = new Array(findBook);
-    displayBookShelf(foundBook);
-}
-
-function inputLength(item) {
-    return item.value.length;
-}
+window.addEventListener("DOMContentLoaded", setupUI);
