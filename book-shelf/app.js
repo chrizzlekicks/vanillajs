@@ -65,7 +65,7 @@ function displayBookShelf(items) {
 }
 
 function searchBook(item) {
-    let search = item.value;
+    let search = item.value.toLowerCase();
     const findBook = books.find(book => book.title == search);
     const foundBook = new Array(findBook);
     displayBookShelf(foundBook);
