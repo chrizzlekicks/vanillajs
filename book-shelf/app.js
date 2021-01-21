@@ -26,7 +26,7 @@ function displaySearchBar() {
         if(inputLength(input) > 0 && e.which == 13) {
             searchBook(input);
         }
-    });
+    })
 }
 
 function displayFilterBtns() {
@@ -65,8 +65,8 @@ function displayBookShelf(items) {
 }
 
 function searchBook(item) {
-    let search = item.value;
-    const findBook = books.find(book => book.title.toLowerCase().includes(search.toLowerCase()));
+    let search = item.value.toLowerCase();
+    const findBook = books.find(book => book.title.includes(search));
     const foundBook = new Array(findBook);
     displayBookShelf(foundBook);
 }
